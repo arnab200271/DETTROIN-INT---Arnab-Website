@@ -4,6 +4,7 @@ import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import HomePage from '../src/Pages/Homepage/HomePage'
 import About from '../src/Pages/About/About'
+import Academics from '../src/Pages/Academics/Academics'
 
 // Mock Pages for demonstration of the interactive premium navbar
 const Home = () => (
@@ -31,16 +32,7 @@ const Home = () => (
 
 
 
-const Academics = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-    <div className="text-center max-w-xl">
-      <h1 className="text-4xl font-extrabold text-slate-800">Academics Program</h1>
-      <p className="text-slate-600 mt-4 leading-relaxed">
-        Our curriculum is designed to inspire critical thinking and creative problem solving, offering a balanced mix of STEM, arts, and humanities.
-      </p>
-    </div>
-  </div>
-)
+
 
 const Admissions = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
@@ -98,7 +90,6 @@ const AppRouter = () => {
           <Route path="/academics" element={<Academics />} />
           <Route path="/academics/*" element={<Academics />} />
           <Route path="/admissions" element={<Admissions />} />
-          <Route path="/facilities" element={<Facilities />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/apply" element={<Admissions />} />

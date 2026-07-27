@@ -1,28 +1,27 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FiClock, FiEye, FiMessageSquare, FiStar, FiShield } from 'react-icons/fi'
+import { FiGrid, FiBookOpen, FiZap, FiClipboard } from 'react-icons/fi'
 
 // ─── Section Imports ───────────────────────────────────────────────────────────
-import AboutHero     from './sections/AboutHero'
-import Stats         from './sections/Stats'
-import History       from './sections/History'
-import VisionMission from './sections/VisionMission'
-import CoreValues    from './sections/CoreValues'
-import Leadership    from './sections/Leadership'
+import AcademicsHero      from './sections/AcademicsHero'
+import Programs           from './sections/Programs'
+import Curriculum         from './sections/Curriculum'
+import LearningApproach   from './sections/LearningApproach'
+import AcademicFacilities from './sections/AcademicFacilities'
+import AssessmentSystem   from './sections/AssessmentSystem'
 
 // ─── Shared Components ─────────────────────────────────────────────────────────
 import PageTabNav from '../../Components/PageTabNav/PageTabNav'
 
 // ─── Tab Definitions ───────────────────────────────────────────────────────────
-const ABOUT_TABS = [
-  { id: 'history',  label: 'Our History',         icon: <FiClock       className="w-4 h-4" /> },
-  { id: 'vision',   label: 'Vision & Mission',     icon: <FiEye         className="w-4 h-4" /> },
-  { id: 'values',   label: 'Core Values',          icon: <FiShield      className="w-4 h-4" /> },
-  { id: 'message',  label: "Principal's Message",  icon: <FiMessageSquare className="w-4 h-4" /> },
+const ACADEMICS_TABS = [
+  { id: 'programs',    label: 'Academic Programs',  icon: <FiGrid       className="w-4 h-4" /> },
+  { id: 'curriculum',  label: 'Curriculum',          icon: <FiBookOpen   className="w-4 h-4" /> },
+  { id: 'learning',    label: 'Learning Approach',   icon: <FiZap        className="w-4 h-4" /> },
+  { id: 'assessment',  label: 'Assessment System',   icon: <FiClipboard  className="w-4 h-4" /> },
 ]
 
 // ─── Animated Content Panel ────────────────────────────────────────────────────
-// Wraps every tab panel with a consistent fade + slide-up entrance animation.
 const panelVariants = {
   initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
@@ -30,44 +29,44 @@ const panelVariants = {
 }
 
 /**
- * About Page
- * ──────────
+ * Academics Page
+ * ──────────────
  * - Hero Banner (always visible)
- * - Stats strip (always visible)
- * - PageTabNav → switches between History | Vision & Mission | Core Values | Principal's Message
+ * - PageTabNav → switches between Programs | Curriculum | Learning Approach | Assessment System
+ *
+ * Note: AcademicFacilities is rendered inside the "Learning Approach" tab
+ * since facilities are closely tied to how learning is delivered.
  */
-const About = () => {
-  const [activeTab, setActiveTab] = useState('history')
+const Academics = () => {
+  const [activeTab, setActiveTab] = useState('programs')
 
-  // Map each tab id to its section component
+  // Map each tab id to its rendered section(s)
   const tabContent = {
-    history:  <History />,
-    vision:   (
+    programs:   <Programs />,
+    curriculum: <Curriculum />,
+    learning: (
       <>
-        <VisionMission />
+        <LearningApproach />
+        <AcademicFacilities />
       </>
     ),
-    values:   <CoreValues />,
-    message:  <Leadership />,
+    assessment: <AssessmentSystem />,
   }
 
   return (
     <div className="flex flex-col">
 
       {/* 1. Hero Banner ─────────────────────────────────────── */}
-      <AboutHero />
+      <AcademicsHero />
 
-      {/* 2. Stats Strip — always visible above tabs ─────────── */}
-      <Stats />
-
-      {/* 3. Tab Navigation Bar ──────────────────────────────── */}
+      {/* 2. Tab Navigation Bar ──────────────────────────────── */}
       <PageTabNav
-        tabs={ABOUT_TABS}
+        tabs={ACADEMICS_TABS}
         activeTab={activeTab}
         onChange={setActiveTab}
       />
 
-      {/* 4. Animated Tab Panel ──────────────────────────────── */}
+      {/* 3. Animated Tab Panel ──────────────────────────────── */}
       <div className="min-h-[500px]">
         <AnimatePresence mode="wait">
           <motion.div
@@ -86,4 +85,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Academics
