@@ -1,8 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from '../layout/Header'
-import HomePage from '../src/Pages/Homepage/HomePage'
 import Footer from '../layout/Footer'
+import HomePage from '../src/Pages/Homepage/HomePage'
+import About from '../src/Pages/About/About'
 
 // Mock Pages for demonstration of the interactive premium navbar
 const Home = () => (
@@ -28,16 +29,7 @@ const Home = () => (
   </div>
 )
 
-const About = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-    <div className="text-center max-w-xl">
-      <h1 className="text-4xl font-extrabold text-slate-800">About Our School</h1>
-      <p className="text-slate-600 mt-4 leading-relaxed">
-        Arnab School has been a pioneer in quality education for over two decades. We foster academic rigor combined with strong values and sports.
-      </p>
-    </div>
-  </div>
-)
+
 
 const Academics = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
@@ -112,7 +104,7 @@ const AppRouter = () => {
           <Route path="/apply" element={<Admissions />} />
         </Routes>
       </div>
-      <Footer/>
+      <Footer />
     </Router>
   )
 }
