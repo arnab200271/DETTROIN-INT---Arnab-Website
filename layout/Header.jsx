@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { BiChevronDown } from 'react-icons/bi'
-import { FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight, FiUser, FiUserPlus } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Header = () => {
@@ -211,11 +211,19 @@ const Header = () => {
             })}
           </nav>
 
-          {/* Apply Now Call-to-Action */}
-          <div className="hidden lg:block">
+          {/* Action Buttons: Login & Apply Now */}
+          <div className="hidden lg:flex items-center gap-3">
+            <NavLink
+              to="/login"
+              className="inline-flex items-center gap-1.5 px-4.5 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-950 bg-slate-100/90 hover:bg-slate-200/80 rounded-full transition-all duration-300 active:scale-95 border border-slate-200/60 shadow-sm"
+            >
+              <FiUser className="w-4 h-4 text-emerald-800" />
+              <span>Login</span>
+            </NavLink>
+
             <NavLink 
               to="/apply"
-              className="relative inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-md hover:shadow-lg hover:shadow-orange-500/20 active:scale-95 transition-all duration-300 overflow-hidden group"
+              className="relative inline-flex items-center gap-2 px-6 py-2 text-sm font-semibold text-white rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-md hover:shadow-lg hover:shadow-orange-500/20 active:scale-95 transition-all duration-300 overflow-hidden group"
             >
               <span>Apply Now</span>
               <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -340,8 +348,16 @@ const Header = () => {
                 )
               })}
 
-              {/* Apply Now button inside mobile drawer */}
-              <motion.div variants={itemVariants} className="pt-4 border-t border-slate-100">
+              {/* Action buttons inside mobile drawer */}
+              <motion.div variants={itemVariants} className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+                <NavLink
+                  to="/login"
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3 text-center text-sm font-bold text-emerald-950 bg-slate-100 hover:bg-slate-200 rounded-2xl transition-all duration-300"
+                >
+                  <FiUser className="w-4 h-4 text-emerald-800" />
+                  <span>Portal Login / Register</span>
+                </NavLink>
+
                 <NavLink
                   to="/apply"
                   className="flex items-center justify-center gap-2 w-full px-5 py-3.5 text-center text-base font-semibold text-white rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-md hover:shadow-orange-500/10 active:scale-[0.98] transition-all duration-300"

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import HomePage from '../src/Pages/Homepage/HomePage'
@@ -8,6 +8,8 @@ import Academics from '../src/Pages/Academics/Academics'
 import Admission from '../src/Pages/Admission/Admission'
 import Gallery from '../src/Pages/Gallery/Gallery'
 import Contact from '../src/Pages/Contact/Contact'
+import Login from '../src/Pages/Auth/Login'
+import Register from '../src/Pages/Auth/Register'
 
 // Mock Pages for demonstration of the interactive premium navbar
 const Home = () => (
@@ -54,11 +56,24 @@ const Facilities = () => (
 
 
 
+// Layout Wrapper to conditionally hide Navbar (Header) and Footer on Auth pages (/login, /register)
+const LayoutWrapper = ({ children }) => {
+  const location = useLocation()
+  const hideNavAndFooter = location.pathname === '/login' || location.pathname === '/register'
+
+  return (
+    <>
+      {!hideNavAndFooter && <Header />}
+      <div>{children}</div>
+      {!hideNavAndFooter && <Footer />}
+    </>
+  )
+}
+
 const AppRouter = () => {
   return (
     <Router>
-      <Header />
-      <div>
+      <LayoutWrapper>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
@@ -72,9 +87,10 @@ const AppRouter = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact/*" element={<Contact />} />
           <Route path="/apply" element={<Admission />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-      </div>
-      <Footer />
+      </LayoutWrapper>
     </Router>
   )
 }
