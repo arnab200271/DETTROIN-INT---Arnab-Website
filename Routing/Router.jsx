@@ -6,6 +6,7 @@ import HomePage from '../src/Pages/Homepage/HomePage'
 import About from '../src/Pages/About/About'
 import Academics from '../src/Pages/Academics/Academics'
 import Admission from '../src/Pages/Admission/Admission'
+import Gallery from '../src/Pages/Gallery/Gallery'
 
 // Mock Pages for demonstration of the interactive premium navbar
 const Home = () => (
@@ -48,16 +49,7 @@ const Facilities = () => (
   </div>
 )
 
-const Gallery = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-    <div className="text-center max-w-xl">
-      <h1 className="text-4xl font-extrabold text-slate-800">Media Gallery</h1>
-      <p className="text-slate-600 mt-4 leading-relaxed">
-        Take a virtual tour of our school campus. Browse photos of sports meet, science exhibitions, and annual cultural programs.
-      </p>
-    </div>
-  </div>
-)
+
 
 const Contact = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
@@ -84,6 +76,7 @@ const AppRouter = () => {
           <Route path="/admissions" element={<Admission />} />
           <Route path="/admissions/*" element={<Admission />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/gallery/*" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/apply" element={<Admission />} />
         </Routes>
