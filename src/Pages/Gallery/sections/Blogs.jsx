@@ -42,7 +42,7 @@ const blogPosts = [
     authorRole: 'Director of Academics',
     date: 'Jan 22, 2026',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b6411?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop',
     excerpt: 'Key time-management frameworks, revision schedules, and stress-busting habits to help Class X and XII students perform at their personal best.',
     featured: false,
   },
@@ -93,6 +93,9 @@ const Blogs = () => {
                 src={featuredPost.image}
                 alt={featuredPost.title}
                 loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.src = `https://placehold.co/800x600/064e3b/d97706?text=${encodeURIComponent(featuredPost.category)}`
+                }}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-4 left-4">
@@ -159,6 +162,9 @@ const Blogs = () => {
                   src={post.image}
                   alt={post.title}
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = `https://placehold.co/800x600/064e3b/d97706?text=${encodeURIComponent(post.category)}`
+                  }}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-emerald-950/80 text-amber-400 border border-emerald-800 backdrop-blur-sm">

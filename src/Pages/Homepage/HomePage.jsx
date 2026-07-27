@@ -179,7 +179,7 @@ const HomePage = () => {
               <div className="mt-8">
                 <a
                   href="/admissions"
-                  className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white bg-emerald-850 hover:bg-emerald-900 rounded-full shadow-lg shadow-emerald-900/10 hover:shadow-emerald-950/20 active:scale-95 transition-all duration-300 group"
+                  className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white bg-emerald-950 hover:bg-emerald-900 rounded-full shadow-lg shadow-emerald-900/10 hover:shadow-emerald-950/20 active:scale-95 transition-all duration-300 group"
                 >
                   <span>Admission Open 2026-27</span>
                   <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

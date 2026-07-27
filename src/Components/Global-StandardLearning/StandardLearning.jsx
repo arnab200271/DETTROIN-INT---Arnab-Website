@@ -241,7 +241,7 @@ const StandardLearning = () => {
                       <div className="pt-4">
                         <a
                           href={path.ctaLink}
-                          className="inline-flex items-center gap-2 px-6 py-2.5 text-xs font-bold text-white bg-emerald-850 hover:bg-emerald-900 rounded-full shadow-lg shadow-emerald-900/10 active:scale-95 transition-all duration-300 group"
+                          className="inline-flex items-center gap-2 px-6 py-2.5 text-xs font-bold text-white bg-emerald-950 hover:bg-emerald-900 rounded-full shadow-lg shadow-emerald-900/10 active:scale-95 transition-all duration-300 group"
                         >
                           <span>{path.ctaText}</span>
                           <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
