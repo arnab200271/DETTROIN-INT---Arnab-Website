@@ -7,6 +7,7 @@ import About from '../src/Pages/About/About'
 import Academics from '../src/Pages/Academics/Academics'
 import Admission from '../src/Pages/Admission/Admission'
 import Gallery from '../src/Pages/Gallery/Gallery'
+import Contact from '../src/Pages/Contact/Contact'
 
 // Mock Pages for demonstration of the interactive premium navbar
 const Home = () => (
@@ -51,16 +52,7 @@ const Facilities = () => (
 
 
 
-const Contact = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-    <div className="text-center max-w-xl">
-      <h1 className="text-4xl font-extrabold text-slate-800">Contact Us</h1>
-      <p className="text-slate-600 mt-4 leading-relaxed">
-        Have questions? Get in touch with our administration office. We are located at 123 Education Hub, city square. Email: info@arnabschool.edu
-      </p>
-    </div>
-  </div>
-)
+
 
 const AppRouter = () => {
   return (
@@ -78,6 +70,7 @@ const AppRouter = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/gallery/*" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact/*" element={<Contact />} />
           <Route path="/apply" element={<Admission />} />
         </Routes>
       </div>
