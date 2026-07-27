@@ -5,6 +5,7 @@ import Footer from '../layout/Footer'
 import HomePage from '../src/Pages/Homepage/HomePage'
 import About from '../src/Pages/About/About'
 import Academics from '../src/Pages/Academics/Academics'
+import Admission from '../src/Pages/Admission/Admission'
 
 // Mock Pages for demonstration of the interactive premium navbar
 const Home = () => (
@@ -34,16 +35,7 @@ const Home = () => (
 
 
 
-const Admissions = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-    <div className="text-center max-w-xl">
-      <h1 className="text-4xl font-extrabold text-slate-800">Admissions Portal</h1>
-      <p className="text-slate-600 mt-4 leading-relaxed">
-        Join our growing student community. Admissions are open for the academic year 2026-2027. Fill out our application form online.
-      </p>
-    </div>
-  </div>
-)
+
 
 const Facilities = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
@@ -89,10 +81,11 @@ const AppRouter = () => {
           <Route path="/about/*" element={<About />} />
           <Route path="/academics" element={<Academics />} />
           <Route path="/academics/*" element={<Academics />} />
-          <Route path="/admissions" element={<Admissions />} />
+          <Route path="/admissions" element={<Admission />} />
+          <Route path="/admissions/*" element={<Admission />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/apply" element={<Admissions />} />
+          <Route path="/apply" element={<Admission />} />
         </Routes>
       </div>
       <Footer />
